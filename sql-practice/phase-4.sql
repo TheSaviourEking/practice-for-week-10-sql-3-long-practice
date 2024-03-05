@@ -2,31 +2,32 @@
 -- Your code here
 -- Query spoiled cats reporting the most spoiled first
 -- Your code here
--- INSERT INTO
---   toys (cat_id, name)
--- SELECT
---   (
---     SELECT
---       id
---     FROM
---       cats
---     WHERE
---       name = 'Red'
---   ),
---   name
--- FROM
---   toys
--- WHERE
---   cat_id <> (
---     SELECT
---       id
---     FROM
---       cats
---     WHERE
---       name = 'Red'
---   )
--- GROUP BY
---   toys.name;
+INSERT INTO
+  toys (cat_id, name)
+SELECT
+  (
+    SELECT
+      id
+    FROM
+      cats
+    WHERE
+      name = 'Red'
+  ),
+  name
+FROM
+  toys
+WHERE
+  cat_id <> (
+    SELECT
+      id
+    FROM
+      cats
+    WHERE
+      name = 'Red'
+  )
+GROUP BY
+  toys.name;
+
 SELECT
   'Cat:',
   cats.name,
